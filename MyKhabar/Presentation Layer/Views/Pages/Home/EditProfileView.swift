@@ -5,7 +5,6 @@
 //  Created by Diptiranjan Rout on 01/02/25.
 //
 
-
 import SwiftUI
 
 struct EditProfileView: View {
@@ -16,8 +15,6 @@ struct EditProfileView: View {
     @State private var bio: String = "Lorem Ipsum is simply dummy text of the printing"
     @State private var website: String = "https://yourwebsite.com"
 
-    
-    
     var body: some View {
             VStack {
                 // Profile Image Section
@@ -79,7 +76,6 @@ struct EditProfileView: View {
             }
     }
 }
-
 
 #Preview {
     EditProfileView()

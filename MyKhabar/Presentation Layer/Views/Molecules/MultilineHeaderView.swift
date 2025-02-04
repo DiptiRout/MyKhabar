@@ -5,9 +5,7 @@
 //  Created by Diptiranjan Rout on 23/01/25.
 //
 
-
 import SwiftUI
-
 
 struct MultilineHeaderView: View {
     
@@ -33,12 +31,13 @@ struct MultilineHeaderView: View {
     }
 }
 
-
 #Preview {
     let headerUIModel = MultilineHeaderUIModel(
         headers: [("Hello", AppFonts.font(for: .display, size: .large), AppColors.systemPrimary, 1),
                   ("Again!", AppFonts.font(for: .display, size: .large), AppColors.appPrimary, 1),
-                  ("Welcome back you've been missed", AppFonts.font(for: .text, size: .large), AppColors.color(grayscale: .bodyText), 2)
+                  ("Welcome back you've been missed",
+                   AppFonts.font(for: .text, size: .large),
+                   AppColors.color(grayscale: .bodyText), 2)
                  ],
         maxWidth: ScaledDesign.scaleWidth(UIScreen.main.bounds.width / 1.5))
     MultilineHeaderView(uiModel: headerUIModel)

@@ -5,7 +5,6 @@
 //  Created by Diptiranjan Rout on 30/01/25.
 //
 
-
 import SwiftUI
 
 // Mock implementation of NewsAPIUseCaseProtocol for Preview
@@ -18,7 +17,7 @@ final class MockNewsAPIUseCase: NewsAPIUseCaseProtocol {
                           description: "Konoha",
                           url: "www.google.com",
                           source: "Ninja News",
-                          image: "https://imagez.tmz.com/image/fa/4by3/2020/08/04/fad55ee236fc4033ba324e941bb8c8b7_md.jpg",
+                          image: "",
                           category: "Ninja",
                           publishedAt: "2025-01-29T07:23:05+00:00"),
             
@@ -28,7 +27,7 @@ final class MockNewsAPIUseCase: NewsAPIUseCaseProtocol {
                           description: "Konoha",
                           url: "www.google.com",
                           source: "Ninja News",
-                          image: "https://imagez.tmz.com/image/fa/4by3/2020/08/04/fad55ee236fc4033ba324e941bb8c8b7_md.jpg",
+                          image: "",
                           category: "Ninja",
                           publishedAt: "2025-01-29T07:23:05+00:00"
                          )
@@ -45,7 +44,7 @@ final class MockNewsAPIUseCase: NewsAPIUseCaseProtocol {
                           description: "Konoha",
                           url: "www.google.com",
                           source: "Ninja News",
-                          image: "https://imagez.tmz.com/image/fa/4by3/2020/08/04/fad55ee236fc4033ba324e941bb8c8b7_md.jpg",
+                          image: "",
                           category: "Ninja",
                           publishedAt: "2025-01-29T07:23:05+00:00"
                          ),
@@ -56,7 +55,7 @@ final class MockNewsAPIUseCase: NewsAPIUseCaseProtocol {
                           description: "Konoha",
                           url: "www.google.com",
                           source: "Ninja News",
-                          image: "https://imagez.tmz.com/image/fa/4by3/2020/08/04/fad55ee236fc4033ba324e941bb8c8b7_md.jpg",
+                          image: "",
                           category: "Ninja",
                           publishedAt: "2025-01-29T07:23:05+00:00"
                          )

@@ -30,7 +30,6 @@ extension String {
         /// [A-Za-z\\d@$!%*?&]{8,}: Allows the defined characters with a minimum length of 8.
         case password
 
-        
         fileprivate var regex: String {
             switch self {
             case .emailAddress:

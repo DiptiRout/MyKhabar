@@ -5,22 +5,25 @@
 //  Created by Diptiranjan Rout on 31/01/25.
 //
 
-
 import SwiftUI
 
 struct ForgotPasswordInputView: View {
     @State private var text = ""
     @State private var isInputView = false
     @ObservedObject private var router = Router.shared
-
+    
     var headerText = ""
     
     var body: some View {
         VStack {
             let headerUIModel = MultilineHeaderUIModel(
                 headers: [("Forgot", AppFonts.font(for: .display, size: .medium), AppColors.systemPrimary, 1),
+                          
                           ("Password?", AppFonts.font(for: .display, size: .medium), AppColors.systemPrimary, 1),
-                          ("Don't worry it happens. Please select the email or number assosiated with your account.", AppFonts.font(for: .text, size: .medium), AppColors.color(grayscale: .bodyText), 3)
+                          
+                          ("Don't worry it happens. Please select the email or number assosiated with your account.",
+                           AppFonts.font(for: .text, size: .medium),
+                           AppColors.color(grayscale: .bodyText), 3)
                          ],
                 maxWidth: ScaledDesign.scaleWidth(UIScreen.main.bounds.width / 1.1))
             

@@ -26,7 +26,6 @@ struct AppColors {
     static let systemPrimary = Color.primary
     static let appPrimary = Color("primaryDefault")
     
-    
     static func color(grayscale: Grayscale) -> Color {
         switch grayscale {
         case .bodyText:

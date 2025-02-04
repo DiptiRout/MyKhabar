@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct ResetPasswordView: View {
     
     @StateObject var textFieldViewModel = AuthTextFieldViewModel()
@@ -16,8 +15,9 @@ struct ResetPasswordView: View {
     let headerUIModel = MultilineHeaderUIModel(
         headers: [("Hello", AppFonts.font(for: .display, size: .large), AppColors.systemPrimary, 1),
                   ("Again!", AppFonts.font(for: .display, size: .large), AppColors.appPrimary, 1),
-                  ("Welcome back you've been missed", AppFonts.font(for: .text, size: .large), AppColors.color(grayscale: .bodyText), 2)
-                 ],
+                  ("Welcome back you've been missed",
+                   AppFonts.font(for: .text, size: .large),
+                   AppColors.color(grayscale: .bodyText), 2)],
         maxWidth: ScaledDesign.scaleWidth(UIScreen.main.bounds.width / 1.5))
     
     var body: some View {

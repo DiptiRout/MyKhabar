@@ -27,7 +27,6 @@ struct BookmarkPageView: View {
         leftViewImage: "magnifyingglass"
     )
 
-
     var body: some View {
         ScrollView {
             LazyVStack(alignment: .leading, pinnedViews: .sectionHeaders) {

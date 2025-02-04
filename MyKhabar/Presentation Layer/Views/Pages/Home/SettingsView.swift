@@ -5,7 +5,6 @@
 //  Created by Diptiranjan Rout on 29/01/25.
 //
 
-
 import SwiftUI
 
 struct SettingsView: View {
@@ -47,9 +46,9 @@ struct SettingsView: View {
                 .toggleStyle(SwitchToggleStyle(tint: .blue))
 
                 // Logout Option
-                Button(action: {
+                Button {
                     print("Logout tapped")
-                }) {
+                } label: {
                     HStack {
                         Image(systemName: "arrow.right.square")
                         Text("Logout")

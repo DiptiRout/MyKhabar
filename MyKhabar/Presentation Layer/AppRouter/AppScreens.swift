@@ -5,7 +5,6 @@
 //  Created by Diptiranjan Rout on 24/01/25.
 //
 
-
 import SwiftUI
 
 enum AuthenticationType {
@@ -50,7 +49,6 @@ enum AppScreens: Hashable & View {
     
     case webView(url: URL)
 
-    
     var body: some View {
         switch self {
         case .splash:

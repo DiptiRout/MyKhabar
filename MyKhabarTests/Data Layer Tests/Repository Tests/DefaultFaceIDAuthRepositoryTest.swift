@@ -9,7 +9,6 @@ import Foundation
 import Testing
 @testable import MyKhabar
 
-
 struct DefaultFaceIDAuthRepositoryTest {
     
     @Test
@@ -49,4 +48,3 @@ struct DefaultFaceIDAuthRepositoryTest {
     }
 
 }
-

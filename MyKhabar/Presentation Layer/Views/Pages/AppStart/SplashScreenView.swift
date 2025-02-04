@@ -5,7 +5,6 @@
 //  Created by Diptiranjan Rout on 23/01/25.
 //
 
-
 import SwiftUI
 
 struct SplashScreenView: View {
@@ -53,7 +52,6 @@ struct SplashScreenView: View {
         }
     }
 }
-
 
 #Preview {
     SplashScreenView()

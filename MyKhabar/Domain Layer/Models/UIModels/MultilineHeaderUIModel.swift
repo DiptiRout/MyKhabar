@@ -10,9 +10,4 @@ import SwiftUI
 struct MultilineHeaderUIModel {
     let headers: [(text: String, font: Font, textColor: Color, lineLimit: Int)]
     let maxWidth: CGFloat
-    
-    init(headers: [(text: String, font: Font, textColor: Color, lineLimit: Int)], maxWidth: CGFloat) {
-        self.headers = headers
-        self.maxWidth = maxWidth
-    }
 }

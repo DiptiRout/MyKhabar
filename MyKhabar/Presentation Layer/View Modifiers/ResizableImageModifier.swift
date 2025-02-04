@@ -43,17 +43,3 @@ struct ResizableImageView: View {
         .frame(width: frameWidth, height: frameHeight) // User-defined frame size
     }
 }
-
-//struct ContentView: View {
-//    let image = UIImage(named: "bigImage") // Replace with your image
-//
-//    var body: some View {
-//        VStack {
-//            if let uiImage = image {
-//                ResizableImageView(image: uiImage, frameWidth: 300, frameHeight: 300)
-//            } else {
-//                Text("No Image Available")
-//            }
-//        }
-//    }
-//}

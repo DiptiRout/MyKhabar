@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct NewsCategoryTopicCell: View {
 
     let news: NewsEntityDTO

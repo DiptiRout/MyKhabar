@@ -5,61 +5,6 @@
 //  Created by Diptiranjan Rout on 30/01/25.
 //
 
-//import SwiftUI
-//
-//struct URLImageView: View {
-//    let url: String
-//
-//    @State private var image: UIImage? = nil
-//
-//    var body: some View {
-//        Group {
-//            if let image = image {
-//                Image(uiImage: image)
-//                    .resizable()
-//            } else {
-//                Color.gray.modifier(ShimmerEffect())
-//            }
-//        }
-//        .onAppear { loadImage() }
-//    }
-//
-//    private func loadImage() {
-//        guard let url = URL(string: url) else { return }
-//
-//        // Check cache first
-//        if let cachedImage = ImageCache.shared.get(forKey: url.absoluteString) {
-//            image = cachedImage
-//            return
-//        }
-//
-//        // Fetch from network
-//        DispatchQueue.global().async {
-//            if let data = try? Data(contentsOf: url),
-//               let fetchedImage = UIImage(data: data) {
-//                DispatchQueue.main.async {
-//                    self.image = fetchedImage
-//                    ImageCache.shared.set(fetchedImage, forKey: url.absoluteString)
-//                }
-//            }
-//        }
-//    }
-//}
-//
-//class ImageCache {
-//    @MainActor static let shared = ImageCache()
-//    private let cache = NSCache<NSString, UIImage>()
-//
-//    func get(forKey key: String) -> UIImage? {
-//        return cache.object(forKey: key as NSString)
-//    }
-//
-//    func set(_ image: UIImage, forKey key: String) {
-//        cache.setObject(image, forKey: key as NSString)
-//    }
-//}
-
-
 import SwiftUI
 
 // Actor for caching SwiftUI Images
@@ -81,7 +26,7 @@ struct URLImageView: View {
     let url: String
     let fallbackImage = Image(systemName: "photo")  // SwiftUI Image as fallback
 
-    @State private var image: Image? = nil
+    @State private var image: Image?
     @State private var isLoading = true  // Controls shimmer visibility
 
     var body: some View {

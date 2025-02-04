@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct NewsListLargeCell: View {
     let news: NewsEntityDTO
 
@@ -64,7 +63,6 @@ struct NewsListLargeCell: View {
                            category: "Ninja",
                            publishedAt: "2025-01-29T07:23:05+00:00"
     )
-
 
     NewsListLargeCell(news: vm)
 }

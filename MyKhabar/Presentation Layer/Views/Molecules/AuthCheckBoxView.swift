@@ -5,9 +5,7 @@
 //  Created by Diptiranjan Rout on 24/01/25.
 //
 
-
 import SwiftUI
-
 
 struct AuthCheckBoxView: View {
     
@@ -17,9 +15,9 @@ struct AuthCheckBoxView: View {
 
     var body: some View {
         HStack {
-            Button(action: {
+            Button {
                 isChecked.toggle()
-            }) {
+            } label: {
                 HStack {
                     Image(systemName: isChecked ? "checkmark.square.fill" : "square")
                         .foregroundColor(isChecked
@@ -35,7 +33,6 @@ struct AuthCheckBoxView: View {
         }
     }
 }
-
 
 #Preview {
     AuthCheckBoxView(uiModel: AuthCheckBoxUIModel())

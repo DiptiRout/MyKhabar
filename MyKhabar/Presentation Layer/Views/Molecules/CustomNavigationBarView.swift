@@ -5,7 +5,6 @@
 //  Created by Diptiranjan Rout on 26/01/25.
 //
 
-
 import SwiftUI
 
 struct CustomNavigationBarView: View {
@@ -21,9 +20,9 @@ struct CustomNavigationBarView: View {
         .toolbar {
             // Add custom buttons to the navigation bar
             ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: {
+                Button {
                     print("Back tapped")
-                }) {
+                } label: {
                     Image(systemName: "arrow.backward")
                 }
             }
@@ -34,9 +33,9 @@ struct CustomNavigationBarView: View {
             }
 
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: {
+                Button {
                     print("Edit tapped")
-                }) {
+                } label: {
                     Image(systemName: "pencil")
                 }
             }
@@ -45,17 +44,6 @@ struct CustomNavigationBarView: View {
         .toolbarBackground(.visible, for: .navigationBar)   // Make the background visible
     }
 }
-
-//struct ContentView: View {
-//    var body: some View {
-//        NavigationStack {
-//            NavigationLink("Go to Custom View", destination: CustomNavigationBarView())
-//                .padding()
-//                .navigationTitle("Main View")
-//        }
-//    }
-//}
-
 
 #Preview {
     CustomNavigationBarView()

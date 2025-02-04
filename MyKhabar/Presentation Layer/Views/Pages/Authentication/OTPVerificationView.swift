@@ -54,18 +54,14 @@ struct OTPVerificationView: View {
             }
             Spacer()
             
-            
             AppPrimaryButton(uiModel: AppPrimaryButtonUIModel(), title: "Verify") {
                 router.navigate(to: .resetPassword)
             }
             .applyBottomContainerTopShadow()
-            
         }
-        .onAppear() {
+        .onAppear {
             startTimer()
         }
-        
-        
     }
     
     private func startTimer() {

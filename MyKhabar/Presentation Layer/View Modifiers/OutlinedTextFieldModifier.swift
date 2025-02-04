@@ -26,7 +26,7 @@ struct OutlinedTextFieldModifier: ViewModifier {
                     .foregroundStyle(uiModel.headerTextColor)
             }
             
-            HStack() {
+            HStack {
                 if uiModel.leftViewImage != "" {
                     Image(systemName: uiModel.leftViewImage)
                         .padding(.leading, 8)
@@ -98,7 +98,8 @@ struct OutlinedTextFieldModifier: ViewModifier {
 
 extension View {
     
-    func applyOutlinedStyle(textFieldType: OutlinedTextFieldModifier.TextFieldType, uiModel: OutlinedTextFieldUIModel) -> some View {
+    func applyOutlinedStyle(textFieldType: OutlinedTextFieldModifier.TextFieldType,
+                            uiModel: OutlinedTextFieldUIModel) -> some View {
         self.modifier(OutlinedTextFieldModifier(textFieldType: textFieldType, uiModel: uiModel))
     }
     

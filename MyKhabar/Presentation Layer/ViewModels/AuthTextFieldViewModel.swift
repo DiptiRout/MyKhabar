@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 class AuthTextFieldViewModel: ObservableObject {
     var usernameHeader = "Username"
     let passwordHeader = "Password"

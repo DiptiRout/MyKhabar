@@ -5,7 +5,6 @@
 //  Created by Diptiranjan Rout on 28/01/25.
 //
 
-
 import SwiftUI
 
 struct Country: Identifiable {
@@ -18,7 +17,7 @@ struct CountrySelectionView: View {
     
     @ObservedObject private var router = Router.shared
     @State private var searchText: String = ""
-    @State private var selectedCountry: Country? = nil
+    @State private var selectedCountry: Country?
     @State private var isNextButtonActive: Bool = false
 
     private let countries: [Country] = [
@@ -82,7 +81,6 @@ struct CountrySelectionView: View {
             .navigationBarTitleDisplayMode(.inline)
     }
 }
-
 
 #Preview {
     CountrySelectionView()

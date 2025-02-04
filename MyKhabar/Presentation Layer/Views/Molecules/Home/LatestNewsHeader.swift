@@ -16,7 +16,9 @@ struct LatestNewsHeader: View {
                 Text("Latest")
                     .font(.headline)
                 Spacer()
-                Button(action: {}) {
+                Button {
+                    
+                } label: {
                     Text("See all")
                         .foregroundColor(.gray)
                 }

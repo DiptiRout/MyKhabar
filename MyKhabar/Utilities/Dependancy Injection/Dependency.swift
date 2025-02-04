@@ -14,7 +14,8 @@ struct Dependency<Dependency> {
     var dependency: Dependency
     
     init(_ dependencyType: DependencyType = .newInstance) {
-        guard let dependency = DependencyInjectionContainer.resolve(dependencyType: dependencyType, Dependency.self) else {
+        guard let dependency = DependencyInjectionContainer.resolve(dependencyType: dependencyType,
+                                                                    Dependency.self) else {
             fatalError("No dependency of type \(String(describing: Dependency.self)) registered!")
         }
         

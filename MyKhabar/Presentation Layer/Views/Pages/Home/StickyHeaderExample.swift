@@ -5,7 +5,6 @@
 //  Created by Diptiranjan Rout on 27/01/25.
 //
 
-
 import SwiftUI
 
 struct StickyHeaderExample: View {
@@ -46,7 +45,6 @@ struct StickyHeaderExample: View {
         }
     }
 }
-
 
 #Preview {
     StickyHeaderExample()

@@ -10,7 +10,6 @@ protocol NewsAPIUseCaseProtocol: Sendable {
     func fetchNews(with categgory: String) async throws -> [NewsEntityDTO]
 }
 
-
 final class NewsAPIUseCase: NewsAPIUseCaseProtocol {
     private let repository: NewsAPIRepository
     

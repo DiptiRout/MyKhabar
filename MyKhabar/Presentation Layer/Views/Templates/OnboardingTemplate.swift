@@ -45,11 +45,11 @@ struct OnboardingTemplate: View {
                 
                 // Navigation Buttons
                 if currentPage < images.count - 1 {
-                    Button(action: {
+                    Button {
                         withAnimation {
                             currentPage += 1
                         }
-                    }) {
+                    }label: {
                         Text("Next")
                             .foregroundColor(.white)
                             .padding()
@@ -59,9 +59,9 @@ struct OnboardingTemplate: View {
                     }
                     .padding(.horizontal)
                 } else {
-                    Button(action: {
+                    Button {
                         presentAction()
-                    }) {
+                    }label: {
                         Text("Get Started")
                             .foregroundColor(.white)
                             .padding()
@@ -106,7 +106,6 @@ struct OnboardingContainerView: View {
         }
     }
 }
-
 
 #Preview {
     OnboardingTemplate(images: ["Onboarding1", "Onboarding1"],

@@ -5,10 +5,8 @@
 //  Created by Diptiranjan Rout on 28/01/25.
 //
 
-
 import SwiftUI
 import LocalAuthentication
-
 
 @MainActor
 final class AuthenticationViewModel: ObservableObject {
@@ -21,7 +19,6 @@ final class AuthenticationViewModel: ObservableObject {
 
     @Dependency private var authenticationUseCase: AuthenticationUseCaseProtocol
     
-
     func checkStatus() {
         Task {
             do {
@@ -59,15 +56,13 @@ final class AuthenticationViewModel: ObservableObject {
     }
 }
 
-
 extension AuthenticationViewModel {
     
     func authenticateWithFaceID() {
         Task {
             do {
                 isFaceAuthenticated = try await authenticationUseCase.authenticateWithFaceID()
-            }
-            catch let error {
+            } catch let error {
                 errorMessage = error.localizedDescription
             }
         }

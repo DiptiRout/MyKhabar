@@ -16,7 +16,6 @@ class NewsExploreViewModel: ObservableObject {
     @Published var errorMessage: String?
     @Published var paginatedNews: [NewsEntityDTO] = []
 
-    
     let uiModel = OutlinedTextFieldUIModel(
         height: ScaledDesign.scaleHeight(48),
         rightViewImage: "slider.horizontal.3",
@@ -34,8 +33,6 @@ class NewsExploreViewModel: ObservableObject {
                            publishedAt: "2025-01-29T07:23:05+00:00"
     )
 
-
-    
     func fetchNews() {
         Task {
             news = [vm, vm, vm, vm, vm]
@@ -58,7 +55,6 @@ class NewsExploreViewModel: ObservableObject {
 
         isLoading = false
     }
-    
     
     func getLatestNews() -> NewsEntityDTO? {
         return news.max {

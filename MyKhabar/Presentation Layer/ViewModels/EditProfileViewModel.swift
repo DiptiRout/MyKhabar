@@ -5,7 +5,6 @@
 //  Created by Diptiranjan Rout on 01/02/25.
 //
 
-
 import SwiftUI
 
 class EditProfileViewModel: ObservableObject {
@@ -15,8 +14,7 @@ class EditProfileViewModel: ObservableObject {
     @Published var phoneNumber: String = "+62-8421-4512-2531"
     @Published var bio: String = "Lorem Ipsum is simply dummy text of the printing"
     @Published var website: String = "https://yourwebsite.com"
-    @Published var profileImage: UIImage? = nil
-    
+    @Published var profileImage: UIImage?
     @Published var showImagePicker: Bool = false
     
     func saveProfile() {

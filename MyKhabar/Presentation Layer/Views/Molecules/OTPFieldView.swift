@@ -8,7 +8,6 @@
 import SwiftUI
 import Combine
 
-
 // A SwiftUI view for entering OTP (One-Time Password).
 struct OTPFieldView: View {
     
@@ -43,14 +42,12 @@ struct OTPFieldView: View {
                                     // Clear focus after the last digit
                                     pinFocusState = nil
                                 }
-                            }
-                            else if newVal.count == numberOfFields, let intValue = Int(newVal) {
+                            } else if newVal.count == numberOfFields, let intValue = Int(newVal) {
                                 // Pasted value
                                 otp = newVal
                                 updatePinsFromOTP()
                                 pinFocusState = FocusPin.pin(numberOfFields - 1)
-                            }
-                            else if newVal.isEmpty {
+                            } else if newVal.isEmpty {
                                 if index > 0 {
                                     pinFocusState = FocusPin.pin(index - 1)
                                 }

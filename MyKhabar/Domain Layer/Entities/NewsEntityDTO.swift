@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct NewsEntityDTO: Decodable, Identifiable {
     var id = UUID()
     let author: String
@@ -27,4 +26,3 @@ struct NewsEntityDTO: Decodable, Identifiable {
         return formatter.date(from: publishedAt)
     }
 }
-

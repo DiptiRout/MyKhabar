@@ -15,7 +15,6 @@ struct CategoryTabBarView: View {
     @State private var screenWidth: CGFloat = 0
     @State private var contentHeight: CGFloat = 0
 
-    
         var tabBarOptions: [String] = ["General",
                                        "Business",
                                        "Entertainment",
@@ -29,8 +28,7 @@ struct CategoryTabBarView: View {
                 ForEach(Array(zip(self.tabBarOptions.indices,
                                   self.tabBarOptions)),
                         id: \.0,
-                        content: {
-                    index, name in
+                        content: { index, name in
                     TabBarItem(currentTab: self.$currentTab,
                                namespace: namespace.self,
                                tabBarItemName: name,
@@ -64,8 +62,6 @@ struct TabBarItem: View {
     var tabBarItemName: String
     var tab: Int
 
-    
-    
     var body: some View {
         Button {
             self.currentTab = tab
@@ -94,12 +90,3 @@ struct TabBarItem: View {
     CategoryTabBarView(currentTab: .constant(1))
         .background(Color.red)
 })
-
-
-//general - Uncategorized News
-//business - Business News
-//entertainment - Entertainment News
-//health - Health News
-//science - Science News
-//sports - Sports News
-//technology - Technology News

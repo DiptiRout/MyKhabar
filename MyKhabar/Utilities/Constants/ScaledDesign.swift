@@ -5,9 +5,7 @@
 //  Created by Diptiranjan Rout on 23/01/25.
 //
 
-
 import SwiftUI
-
 
 @MainActor
 struct ScaledDesign {
@@ -17,11 +15,9 @@ struct ScaledDesign {
     
     /// The base height of the design from Figma in points.
     private static let baseHeight: CGFloat = 926 // Figma design height in points
-    
-    
+        
     /**
      Scales a given width from Figma design to match the current device's screen width.
-     
      Formula:
      ```
      Scale Factor = Device Screen Width / Figma Design Width
@@ -46,7 +42,6 @@ struct ScaledDesign {
         let screenWidth = UIScreen.main.bounds.width
         return originalSize * (screenWidth / baseWidth)
     }
-    
     
     /**
      Scales a given height from Figma design to match the current device's screen height.

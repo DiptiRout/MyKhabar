@@ -15,7 +15,6 @@ protocol AuthenticationUseCaseProtocol: Sendable {
     func authenticateWithFaceID() async throws -> Bool
 }
 
-
 final class AuthenticationUseCase: AuthenticationUseCaseProtocol {
         
     private let gooleRepository: GoogleAuthRepository
@@ -41,17 +40,4 @@ final class AuthenticationUseCase: AuthenticationUseCaseProtocol {
     func authenticateWithFaceID() async throws -> Bool {
         try await faceIDAuthRepository.authenticateWithFaceID()
     }
-    
-    
-//    func signIn() {
-//        
-//    }
-//    
-//    func signUp() {
-//        
-//    }
-//    
-//    func signOut() {
-//        
-//    }
 }

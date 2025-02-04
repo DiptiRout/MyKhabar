@@ -26,4 +26,3 @@ final class DefaultGoogleAuthenticationRepository: GoogleAuthRepository {
         return true
     }
 }
-

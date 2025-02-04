@@ -17,7 +17,6 @@ protocol LAContextProtocol {
 // Extend LAContext to conform to LAContextProtocol
 extension LAContext: LAContextProtocol {}
 
-
 final actor DefaultFaceIDAuthRepository: FaceIDAuthRepository {
     
     private let context: LAContextProtocol
@@ -33,17 +32,25 @@ final actor DefaultFaceIDAuthRepository: FaceIDAuthRepository {
             if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) {
                 let reason = "Use Face ID to log in to your account."
                 
-                context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, error in
+                context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
+                                       localizedReason: reason) { success, error in
                     DispatchQueue.main.async {
                         if success {
                             continuation.resume(returning: true) // ✅ Return success
                         } else {
-                            continuation.resume(throwing: error ?? NSError(domain: "FaceID", code: -1, userInfo: [NSLocalizedDescriptionKey: "Authentication failed."]))
+                            continuation.resume(throwing: error ??
+                                                NSError(domain: "FaceID",
+                                                        code: -1,
+                                                        userInfo:
+                                                            [NSLocalizedDescriptionKey: "Authentication failed."]))
                         }
                     }
                 }
             } else {
-                continuation.resume(throwing: NSError(domain: "FaceID", code: -2, userInfo: [NSLocalizedDescriptionKey: "Face ID is not available on this device."]))
+                continuation.resume(throwing: NSError(domain: "FaceID",
+                                                      code: -2,
+                                                      userInfo:
+                                                        [NSLocalizedDescriptionKey: "Face ID is not available on this device."]))
             }
         }
     }

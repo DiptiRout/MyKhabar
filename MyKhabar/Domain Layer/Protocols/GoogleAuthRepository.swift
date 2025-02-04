@@ -12,4 +12,3 @@ protocol GoogleAuthRepository: Sendable {
     func signInGoogle(withPresenting viewController: UIViewController) async throws -> GoogleUserEntity
     func signOutGoogle() -> Bool
 }
-

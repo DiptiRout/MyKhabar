@@ -29,5 +29,3 @@ struct NewsEntity: Decodable {
     let category: String?
     let publishedAt: String?
 }
-
-

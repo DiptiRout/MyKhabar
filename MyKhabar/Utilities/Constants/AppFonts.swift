@@ -5,7 +5,6 @@
 //  Created by Diptiranjan Rout on 24/01/25.
 //
 
-
 import SwiftUI
 
 struct AppFonts {
@@ -44,4 +43,3 @@ struct AppFonts {
         case large
     }
 }
-

@@ -17,7 +17,6 @@ struct OutlinedTextFieldUIModel {
     let headerTextColor: Color
     let isMandatory: Bool
 
-    
     /// TextField UI Model
     let textFont: Font
     let textColor: Color
@@ -32,7 +31,6 @@ struct OutlinedTextFieldUIModel {
     let footerText: String
     let footerTextColor: Color
     let footerViewImage: String
-    
     
     init(height: CGFloat,
          headerText: String = "",

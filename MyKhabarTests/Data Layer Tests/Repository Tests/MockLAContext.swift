@@ -5,11 +5,9 @@
 //  Created by Diptiranjan Rout on 03/02/25.
 //
 
-
 import LocalAuthentication
 import Foundation
 @testable import MyKhabar
-
 
 class MockLAContext: LAContextProtocol {
     var canEvaluatePolicyStub: Bool = true
@@ -25,8 +23,10 @@ class MockLAContext: LAContextProtocol {
             evaluatePolicyStub(policy, localizedReason, reply)
         } else {
             // Default to failure scenario
-            let error = NSError(domain: "FaceID", code: -1, userInfo: [NSLocalizedDescriptionKey: "Authentication failed"])
-            reply(false, error) // Simulate failure with an error
+            let error = NSError(domain: "FaceID",
+                                code: -1,
+                                userInfo: [NSLocalizedDescriptionKey: "Authentication failed"])
+            reply(false, error)
         }
     }
 }

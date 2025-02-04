@@ -5,7 +5,6 @@
 //  Created by Diptiranjan Rout on 30/01/25.
 //
 
-
 import SwiftUI
 
 struct CustomNavigationBarModifier: ViewModifier {
@@ -23,7 +22,9 @@ struct CustomNavigationBarModifier: ViewModifier {
             HStack {
                 // Left Image Button (if enabled)
                 if showLeftImage, let leftImage = leftImage {
-                    Button(action: { leftAction?() }) {
+                    Button {
+                        leftAction?()
+                    } label: {
                         Image(systemName: leftImage)
                             .resizable()
                             .scaledToFit()
@@ -45,7 +46,9 @@ struct CustomNavigationBarModifier: ViewModifier {
 
                 // Right Image Button (if enabled)
                 if showRightImage, let rightImage = rightImage {
-                    Button(action: { rightAction?() }) {
+                    Button {
+                        rightAction?()
+                    } label: {
                         Image(systemName: rightImage)
                             .resizable()
                             .scaledToFit()
@@ -89,7 +92,6 @@ extension View {
         ))
     }
 }
-
 
 #Preview {
     NavigationStack {

@@ -28,7 +28,6 @@ extension View {
     }
 }
 
-
 struct BottomContainerViewModifier: ViewModifier {
     
     var height: CGFloat = 130

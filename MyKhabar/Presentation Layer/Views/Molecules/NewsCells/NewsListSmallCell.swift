@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct NewsListSmallCell: View {    
     let news: NewsEntityDTO
     
@@ -58,12 +57,9 @@ struct NewsListSmallCell: View {
                             .padding(.trailing)
                     }
                     
-                    
                 }
             }
             Spacer()
-            
-            
         }
         .padding(.top)
     }

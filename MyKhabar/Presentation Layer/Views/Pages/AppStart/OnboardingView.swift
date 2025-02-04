@@ -5,7 +5,6 @@
 //  Created by Diptiranjan Rout on 23/01/25.
 //
 
-
 import SwiftUI
 
 struct OnboardingView: View {
@@ -31,7 +30,6 @@ struct OnboardingView: View {
             }
     }
 }
-
 
 #Preview {
     OnboardingView()

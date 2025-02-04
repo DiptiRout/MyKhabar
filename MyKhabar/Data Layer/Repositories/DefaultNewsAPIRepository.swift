@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 final actor DefaultNewsAPIRepository: NewsAPIRepository {
     
     private let apiService = NetworkService()
@@ -86,4 +85,3 @@ final actor DefaultNewsAPIRepository: NewsAPIRepository {
         }
     }
 }
-

@@ -13,7 +13,6 @@ protocol URLSessionProtocol: Sendable {
 
 extension URLSession: URLSessionProtocol { }
 
-
 actor NetworkService {
     private let session: URLSessionProtocol
 
@@ -72,6 +71,4 @@ actor NetworkService {
         components?.queryItems = params.map { URLQueryItem(name: $0.key, value: $0.value) }
         return components?.url
     }
-
 }
-

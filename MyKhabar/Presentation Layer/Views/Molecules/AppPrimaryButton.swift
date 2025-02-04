@@ -5,9 +5,7 @@
 //  Created by Diptiranjan Rout on 24/01/25.
 //
 
-
 import SwiftUI
-
 
 struct AppPrimaryButton: View {
     
@@ -18,7 +16,7 @@ struct AppPrimaryButton: View {
     
     var buttonType: AppPrimaryButtonType = .filled
     let uiModel: AppPrimaryButtonUIModel
-    var title: String? = nil
+    var title: String?
     var isDisabled: Bool = false
     let buttonPressed: () -> Void
     
@@ -64,15 +62,15 @@ struct AppPrimaryButton: View {
     }
 }
 
-
 #Preview {
     HStack {
         AppPrimaryButton(uiModel: AppPrimaryButtonUIModel(), title: "Login") {
             
         }
-        
-        AppPrimaryButton(uiModel: AppPrimaryButtonUIModel(rightImage: Image(systemName: "apple.logo"), buttonWidth: nil)) {
-            
+        AppPrimaryButton(uiModel:
+                            AppPrimaryButtonUIModel(rightImage:
+                                                        Image(systemName: "apple.logo"),
+                                                    buttonWidth: nil)) {
         }
         
     }
