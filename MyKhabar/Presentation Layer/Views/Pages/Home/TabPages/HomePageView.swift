@@ -14,8 +14,8 @@ struct HomePageView: View {
     @StateObject var viewModel = HomePageViewModel()
     @State private var searchText: String = ""
     @State private var selectedTab = 0
-    
     @State private var showWebView = false
+    @State private var showAlert = false
     
     var body: some View {
         VStack {
@@ -56,34 +56,67 @@ struct HomePageView: View {
                     }
                     
                     Section {
-                        
-                        ForEach(viewModel.paginatedNews.indices, id: \.self) { index in
-                            Button {
-                                if let url = URL(string: viewModel.paginatedNews[index].url) {
-                                    router.navigate(to: .webView(url: url))
+                        let key = viewModel.tabBarOptions[selectedTab]
+                        if let items = viewModel.paginatedNewsDict[key] {
+                            ForEach(items.indices, id: \.self) { index in
+                                Button {
+                                    if let url = URL(string: items[index].url) {
+                                        router.navigate(to: .webView(url: url))
+                                    }
+                                } label: {
+                                    NewsListSmallCell(news: items[index])
                                 }
-                            } label: {
-                                NewsListSmallCell(news: viewModel.paginatedNews[index])
-                            }
-                            .buttonStyle(PlainButtonStyle())
-                            .onAppear {
-                                if index == viewModel.paginatedNews.count - 1 {
-                                    viewModel.fetchNews()
+                                .buttonStyle(PlainButtonStyle())
+                                .onAppear {
+                                    if index == items.count - 1 {
+                                        viewModel.fetchNews(with: selectedTab)
+                                    }
                                 }
                             }
                         }
                         
                     } header: {
-                        LatestNewsHeader(selectedTab: self.$selectedTab)
-                            .background(Color(.systemBackground).ignoresSafeArea())
+                        VStack {
+                            HStack {
+                                Text("Latest")
+                                    .font(.headline)
+                                Spacer()
+                                Button {
+                                    
+                                } label: {
+                                    Text("See all")
+                                        .foregroundColor(.gray)
+                                }
+                            }
+                            .padding(.top)
+                            .padding(.horizontal)
+                            
+                            CategoryTabBarView(
+                                currentTab: self.$selectedTab,
+                                tabBarOptions: viewModel.tabBarOptions
+                            ) {
+                                viewModel.fetchNews(with: selectedTab)
+                            }
+                        }
+                        .background(Color(.systemBackground).ignoresSafeArea())
                     }
                     
                 }
                 .onAppear {
-                    viewModel.fetchNews()
+                    viewModel.fetchNews(with: selectedTab)
                     
                 }
                 Spacer()
+            }
+        }
+        .alert("Error", isPresented: $showAlert) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(viewModel.errorMessage ?? "Unknown error")
+        }
+        .onChange(of: viewModel.errorMessage) { newValue in
+            if newValue != nil {
+                showAlert = true
             }
         }
     }

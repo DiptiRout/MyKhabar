@@ -83,7 +83,12 @@ struct ProfilePageView: View {
                             }
                         }
                     } header: {
-                        CategoryTabBarView(currentTab: $selectedTab)
+                        CategoryTabBarView(
+                            currentTab: $selectedTab,
+                            tabBarOptions: ["All", "Games"]
+                        ) {
+                            
+                        }
                     }
                     
                 }

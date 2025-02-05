@@ -15,7 +15,9 @@ struct SearchView: View {
 //                .cornerRadius(10)
 //                .padding(.horizontal)
             
-            CategoryTabBarView(currentTab: self.$selectedTab)
+            CategoryTabBarView(currentTab: self.$selectedTab, tabBarOptions: segmentTitles) {
+                
+            }
             
 //            ZStack(alignment: .top) {
 //                TabView(selection: $selectedTab) {

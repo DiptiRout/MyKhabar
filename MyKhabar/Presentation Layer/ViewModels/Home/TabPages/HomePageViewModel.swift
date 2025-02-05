@@ -14,7 +14,8 @@ class HomePageViewModel: ObservableObject {
     @Published var news: [NewsEntityDTO] = []
     @Published var isLoading = false
     @Published var errorMessage: String?
-    @Published var paginatedNews: [NewsEntityDTO] = []
+    @Published var paginatedNewsDict: [String: [NewsEntityDTO]] = [:]
+
 
     let uiModel = OutlinedTextFieldUIModel(
         height: ScaledDesign.scaleHeight(48),
@@ -32,24 +33,37 @@ class HomePageViewModel: ObservableObject {
                            category: "Ninja",
                            publishedAt: "2025-01-29T07:23:05+00:00"
     )
-    func fetchNews() {
+    
+    var tabBarOptions: [String] = ["General",
+                                   "Business",
+                                   "Entertainment",
+                                   "Health",
+                                   "Science", "Sports", "Technology"]
+    
+    func fetchNews(with category: Int) {
         Task {
 //            news = [vm, vm, vm, vm, vm]
-//            paginatedNews.append(contentsOf: news)
-            await loadNews()
+            await loadNews(with: tabBarOptions[category])
         }
     }
 
-    private func loadNews() async {
+    private func loadNews(with category: String) async {
         isLoading = true
         errorMessage = nil
 
         do {
-            let fetchedNews = try await fetchNewsUseCase.fetchNews()
+            let fetchedNews = try await fetchNewsUseCase.fetchNews(
+                with: category
+            )
             news = fetchedNews
-            paginatedNews.append(contentsOf: news)
+            paginatedNewsDict[category, default: []]
+                .append(contentsOf: news)
         } catch {
-            errorMessage = "Failed to fetch news: \(error.localizedDescription)"
+            if let error = (error as? NewsAPIErrorResponse)?.error {
+                errorMessage = "Failed to fetch news: \(error.message)"
+            } else {
+                errorMessage = "Failed to fetch news: \(error.localizedDescription)"
+            }
         }
 
         isLoading = false

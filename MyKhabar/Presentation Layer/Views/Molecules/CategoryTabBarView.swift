@@ -11,17 +11,12 @@ struct CategoryTabBarView: View {
     @Binding var currentTab: Int
     @Namespace var namespace
     @State private var contentWidth: CGFloat = 0
-    let itemSpacing: CGFloat = 20
-    @State private var screenWidth: CGFloat = 0
     @State private var contentHeight: CGFloat = 0
 
-        var tabBarOptions: [String] = ["General",
-                                       "Business",
-                                       "Entertainment",
-                                       "Health",
-                                       "Science", "Sports", "Technology"]
-//    var tabBarOptions: [String] = ["News", "Topics", "Author"]
-    
+    let tabBarOptions: [String]
+    let itemSpacing: CGFloat = 20
+    let tabSwitch: () -> Void
+
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(alignment: .center, spacing: itemSpacing) {
@@ -32,7 +27,9 @@ struct CategoryTabBarView: View {
                     TabBarItem(currentTab: self.$currentTab,
                                namespace: namespace.self,
                                tabBarItemName: name,
-                               tab: index)
+                               tab: index) {
+                        tabSwitch()
+                    }
                     .background(
                         GeometryReader { geometry in
                             Color.clear.onAppear {
@@ -46,7 +43,6 @@ struct CategoryTabBarView: View {
             .padding(.horizontal)
         }
         .scrollDisabled(false)
-//        .frame(height: ScaledDesign.scaleHeight(34))
         .frame(height: contentHeight)
         .edgesIgnoringSafeArea(.all)
         .if(contentWidth < UIScreen.main.bounds.width) {
@@ -61,10 +57,12 @@ struct TabBarItem: View {
     let namespace: Namespace.ID
     var tabBarItemName: String
     var tab: Int
+    let tabSwitch: () -> Void
 
     var body: some View {
         Button {
             self.currentTab = tab
+            tabSwitch()
         } label: {
             VStack {
                 Spacer()
@@ -87,6 +85,7 @@ struct TabBarItem: View {
 }
 
 #Preview(body: {
-    CategoryTabBarView(currentTab: .constant(1))
+    CategoryTabBarView(currentTab: .constant(1), tabBarOptions: ["All", "Games"]) {
+    }
         .background(Color.red)
 })
